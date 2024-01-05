@@ -1,2 +1,2 @@
 # Code-Quiz
-A fun Java Script Quizz
+A fun Quiz about learning front-end development. 
