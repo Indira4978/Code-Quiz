@@ -1,38 +1,39 @@
-// when "start" button is clicked:
-//starts the timer
-var count = 120;
+// when "start" button is clicked: - ok
+//starts the timer - ok
+var count = 5;
+var countDown = document.getElementById("time");
 var startButton = document.getElementById("start");
-var quizTimer;
-startButton.addEventListener("click", function () {
+
+var timeOutMessage = document.getElementById("timeout-message");
+var displayQuestion = document.getElementById("questions");
+
+//start button event listener
+startButton.addEventListener("click", startTimer);
+
+//start the timer when clicking "start" button
+function startTimer() {
   quizTimer = setInterval(function () {
     count--;
-    console.log(count);
+    //get time to be displayed in the time field on the page - ok
+    countDown.textContent = count;
 
-    if (count === 0) {
+    //stops the timer when reached 0 - ok
+    if (count <= 0) {
       clearInterval(quizTimer);
-      console.log("Time is up!");
+      timeOutMessage.textContent = "Time is up!"; // style later
     }
   }, 1000);
-});
+}
 
-//--> event listener calls the function that we will define
+// console.log(quizQuestions);
+
+// TIMER FUNCTIONLALITY:
+// Add 10s back when wrong answer selected --> write a function to be added to all questions
+// Get time to be displayed in minutes in countDown.textContent = count;
+//When timer finishes - display message on page - OK
+
+//QUIZ FUNCTIONALITIES
 //displays first question
-// function displayQuestion(0) {
-
-//     var questionText = document.createTextNode(quizQuestions[0].question);
-
-//     quizQuestions[0].options.forEach(function (option) {
-
-//         optionButton.addEventListener('click', function () {
-//             checkAnswer(0, option);
-//         });
-//     });
-
-//     // ... (rest of the code)
-// }
-
-//starts the timer
-//--> event listener calls the function that we will define
 
 // ***quiz function***//
 //displays questions with the answers in buttons
