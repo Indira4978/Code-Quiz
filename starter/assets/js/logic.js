@@ -3,50 +3,89 @@
 var count = 5;
 var countDown = document.getElementById("time");
 var startButton = document.getElementById("start");
-
 var timeOutMessage = document.getElementById("timeout-message");
-var displayQuestion = document.getElementById("questions");
+
+var questionContainer = document.getElementById("questions-container");
+
+var questionElement = document.getElementById("question-title");
+
+var answerOptionsButtons = document.getElementById("choices-btns");
+
+var nextButton = document.getElementById("next-btn");
+
+var currentQuestionIndex = 0;
+
+var score = 0;
 
 //start button event listener
-startButton.addEventListener("click", startTimer);
+startButton.addEventListener("click", startQuiz);
 
-//start the timer when clicking "start" button
-function startTimer() {
-  quizTimer = setInterval(function () {
-    count--;
-    //get time to be displayed in the time field on the page - ok
-    countDown.textContent = count;
+function startQuiz() {
+  //un-hide the question container
+  questionContainer.classList.remove("hide");
+  //display the first question
+  currentQuestionIndex = 0;
+  nextButton.classList.remove("hide");
 
-    //stops the timer when reached 0 - ok
-    if (count <= 0) {
-      clearInterval(quizTimer);
-      timeOutMessage.textContent = "Time is up!"; // style later
-    }
-  }, 1000);
+  nextButton.innerHTML = "Next Question";
+
+  // show next question
+  // showNextQuestion();
+  // setNextQuestion();
+
+  // //start the timer when clicking "start" button
+  // function startTimer() {
+  //   //hide quiz button
+  //   startButton.classList.add("hide");
+  //   quizTimer = setInterval(function () {
+  //     count--;
+  //     //get time to be displayed in the time field on the page - ok
+  //     countDown.textContent = count;
+
+  //     //stops the timer when reached 0 - ok
+  //     if (count <= 0) {
+  //       clearInterval(quizTimer);
+  //       timeOutMessage.textContent = "Time is up!"; // style later
+  //     }
+  //   }, 1000);
+  // }
+  // startTimer();
 }
 
-// console.log(quizQuestions);
+// function showNextQuestion() {
+//   var currentQuestion = quizQuestions[currentQuestionIndex];
+//   questionElement.textContent = currentQuestion.question;
 
-// TIMER FUNCTIONLALITY:
-// Add 10s back when wrong answer selected --> write a function to be added to all questions
-// Get time to be displayed in minutes in countDown.textContent = count;
-//When timer finishes - display message on page - OK
+//display answers
+//   currentQuestion.options.forEach(answer => {
+//     var
+//   })
+// }
 
-//QUIZ FUNCTIONALITIES
-//displays first question
+// var firstQuestion = quizQuestions[0].question;
 
-// ***quiz function***//
-//displays questions with the answers in buttons
+// console.log(firstQuestion);
+// var firstQuestion = document.getElementById("question-title");
+// var answer
 
-// use dom to access the question object
-//
-//display the answer options in button
+// function showFirstQuestion(question) {
+//   firstQuestion.innerText = quizQuestions[0].question;
+// }
 
-//event listener checks for the option selected
+// function setNextQuestion() {
+//   showNextQuestion(quizQuestions[currentQuestionIndex]);
+// }
 
-// validate the answer
+// function showNextQuestion(questionElement) {
+//   questionElement.innerText =
+//     questionElement[currentQuestionIndex].quizQuestions.question;
+//   // Clear previous answer options buttons
+//   answerOptionsButtons.innerHTML = "";
 
-// if correct answer : display "correct" in green + correct answer sound
-// if wrong answer: display "wrong" + wrong answer sound
-// store score in local storage
-// display score
+//   // Display answer options
+//   for (var i = 0; i < quizQuestions.options.length; i++) {
+//     var choiceButton = document.createElement("button");
+//     choiceButton.textContent = quizQuestions.options[i];
+//     answerOptionsButtons.appendChild(choiceButton);
+//   }
+// }

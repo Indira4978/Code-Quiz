@@ -26,10 +26,15 @@
         <button id="start">Start Quiz</button>
       </div>
 
-      <div id="questions" class="hide">
+      <div id="questions-container" class="hide">
         <h2 id="question-title"></h2>
-        <div id="choices" class="choices"></div>
+        <div id="choices-btns" class="choices"></div>
+        <button class="option-btn">Option 1</button>
+        <button class="option-btn">Option 2</button>
+        <button class="option-btn">Option 3</button>
+        <button class="option-btn">Option 4</button>
       </div>
+      <button id="next-btn" class="hide">Next</button>
 
       <div id="end-screen" class="hide">
         <h2>All done!</h2>
@@ -43,7 +48,7 @@
       <div id="feedback" class="feedback hide"></div>
     </div>
 
-    <script src="./assets/js/questions.js"></script>
+    <script src="./assets/js/quizQuestions.js"></script>
     <script src="./assets/js/logic.js"></script>
   </body>
 </html>

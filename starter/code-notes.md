@@ -1,10 +1,10 @@
 functions needed
 
-start the timer
+start the timer --- ok
 
-hide "start" button
+hide "start" button ---- ok
 
-display the first question
+display the first question ---
 
 display the answers options in buttons
 
@@ -57,3 +57,27 @@ display score when "view high scores" is clicked
 
 // // }
 // // function displayQuestion(0)
+
+// TIMER FUNCTIONLALITY:
+// Add 10s back when wrong answer selected --> write a function to be added to all questions
+// Get time to be displayed in minutes in countDown.textContent = count;
+//When timer finishes - display message on page - OK
+
+//QUIZ FUNCTIONALITIES
+//displays first question
+
+// **_quiz function_**//
+//displays questions with the answers in buttons
+
+// use dom to access the question object
+//
+//display the answer options in button
+
+//event listener checks for the option selected
+
+// validate the answer
+
+// if correct answer : display "correct" in green + correct answer sound
+// if wrong answer: display "wrong" + wrong answer sound
+// store score in local storage
+// display score
