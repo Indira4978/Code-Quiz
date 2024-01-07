@@ -4,9 +4,9 @@ start the timer --- ok
 
 hide "start" button ---- ok
 
-display the first question ---
+display the first question --- ok
 
-display the answers options in buttons
+display the answers options in buttons - ok - first questions
 
 validate the answers
 correct : play sounds + green

@@ -25,43 +25,61 @@ function startQuiz() {
   questionContainer.classList.remove("hide");
   //display the first question
   currentQuestionIndex = 0;
+
+  //create and display "next question" button
   nextButton.classList.remove("hide");
 
   nextButton.innerHTML = "Next Question";
 
-  // show next question
-  // showNextQuestion();
+  // show  question
+  displayQuestion();
   // setNextQuestion();
 
   // //start the timer when clicking "start" button
-  // function startTimer() {
-  //   //hide quiz button
-  //   startButton.classList.add("hide");
-  //   quizTimer = setInterval(function () {
-  //     count--;
-  //     //get time to be displayed in the time field on the page - ok
-  //     countDown.textContent = count;
+  function startTimer() {
+    //hide quiz button
+    startButton.classList.add("hide");
+    quizTimer = setInterval(function () {
+      count--;
+      //get time to be displayed in the time field on the page - ok
+      countDown.textContent = count;
 
-  //     //stops the timer when reached 0 - ok
-  //     if (count <= 0) {
-  //       clearInterval(quizTimer);
-  //       timeOutMessage.textContent = "Time is up!"; // style later
-  //     }
-  //   }, 1000);
-  // }
-  // startTimer();
+      //stops the timer when reached 0 - ok
+      if (count <= 0) {
+        clearInterval(quizTimer);
+        timeOutMessage.textContent = "Time is up!"; // style later
+      }
+    }, 1000);
+  }
+  startTimer();
 }
 
-// function showNextQuestion() {
-//   var currentQuestion = quizQuestions[currentQuestionIndex];
-//   questionElement.textContent = currentQuestion.question;
+function displayQuestion() {
+  var currentQuestion = quizQuestions[currentQuestionIndex];
+  questionElement.textContent = currentQuestion.question;
 
-//display answers
-//   currentQuestion.options.forEach(answer => {
-//     var
-//   })
+  //display answers
+  currentQuestion.options.forEach((answer) => {
+    var button = document.createElement("button");
+    button.innerHTML = answer.text;
+    button.classList.add("btn");
+    answerOptionsButtons.appendChild(button);
+  });
+}
+
+// function displayNextQuestion() {
+//   //when "next question" button is clicked, move to next index of the quizQuestion array.
+// //--> EVENT LISTENER + function to move to next index
 // }
 
+nextButton.addEventListener("click", function () {
+  //Remove previous question and answers
+  questionElement.textContent = "";
+  answerOptionsButtons.textContent = "";
+  // Move to the next question index
+  currentQuestionIndex++;
+  displayQuestion();
+});
 // var firstQuestion = quizQuestions[0].question;
 
 // console.log(firstQuestion);
@@ -73,10 +91,10 @@ function startQuiz() {
 // }
 
 // function setNextQuestion() {
-//   showNextQuestion(quizQuestions[currentQuestionIndex]);
+//   displayQuestion(quizQuestions[currentQuestionIndex]);
 // }
 
-// function showNextQuestion(questionElement) {
+// function displayQuestion(questionElement) {
 //   questionElement.innerText =
 //     questionElement[currentQuestionIndex].quizQuestions.question;
 //   // Clear previous answer options buttons
