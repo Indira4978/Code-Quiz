@@ -1,6 +1,6 @@
 // when "start" button is clicked: - ok
 //starts the timer - ok
-var count = 5;
+var count = 60;
 var countDown = document.getElementById("time");
 var startButton = document.getElementById("start");
 var timeOutMessage = document.getElementById("timeout-message");
@@ -69,14 +69,23 @@ function displayQuestion() {
     answerOptionsButtons.appendChild(button);
 
     button.addEventListener("click", function () {
+      var allButtons = document.querySelectorAll(".btn");
+      allButtons.forEach((btn) => {
+        btn.style.backgroundColor = "";
+      });
+
       if (answer.correct === true) {
         answerValidation.classList.remove("hide");
         answerValidation.textContent = "CORRECT !";
         correctAudio.play();
+        button.style.backgroundColor = "green";
       } else {
         answerValidation.classList.remove("hide");
         answerValidation.textContent = "WRONG !";
         wrongAudio.play();
+        button.style.backgroundColor = "red";
+        //remove 10s from time
+        count = count - 10;
       }
     });
   });
