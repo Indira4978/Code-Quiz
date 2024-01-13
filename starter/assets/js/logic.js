@@ -58,6 +58,8 @@ function startQuiz() {
 function displayQuestion() {
   var currentQuestion = quizQuestions[currentQuestionIndex];
   questionElement.textContent = currentQuestion.question;
+  var correctAudio = new Audio("./assets/sfx/correct.wav");
+  var wrongAudio = new Audio("./assets/sfx/incorrect.wav");
 
   //display answers
   currentQuestion.options.forEach((answer) => {
@@ -70,9 +72,11 @@ function displayQuestion() {
       if (answer.correct === true) {
         answerValidation.classList.remove("hide");
         answerValidation.textContent = "CORRECT !";
+        correctAudio.play();
       } else {
         answerValidation.classList.remove("hide");
         answerValidation.textContent = "WRONG !";
+        wrongAudio.play();
       }
     });
   });
