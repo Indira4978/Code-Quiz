@@ -16,6 +16,7 @@ var nextButton = document.getElementById("next-btn");
 var currentQuestionIndex = 0;
 
 var score = 0;
+var answerValidation = document.getElementById("answer-validation");
 
 //start button event listener
 startButton.addEventListener("click", startQuiz);
@@ -60,17 +61,22 @@ function displayQuestion() {
 
   //display answers
   currentQuestion.options.forEach((answer) => {
-    var button = document.createElement("button");
+    button = document.createElement("button"); // global
     button.innerHTML = answer.text;
     button.classList.add("btn");
     answerOptionsButtons.appendChild(button);
+
+    button.addEventListener("click", function () {
+      if (answer.correct === true) {
+        answerValidation.classList.remove("hide");
+        answerValidation.textContent = "CORRECT !";
+      } else {
+        answerValidation.classList.remove("hide");
+        answerValidation.textContent = "WRONG !";
+      }
+    });
   });
 }
-
-// function displayNextQuestion() {
-//   //when "next question" button is clicked, move to next index of the quizQuestion array.
-// //--> EVENT LISTENER + function to move to next index
-// }
 
 nextButton.addEventListener("click", function () {
   //Remove previous question and answers
@@ -80,30 +86,5 @@ nextButton.addEventListener("click", function () {
   currentQuestionIndex++;
   displayQuestion();
 });
-// var firstQuestion = quizQuestions[0].question;
 
-// console.log(firstQuestion);
-// var firstQuestion = document.getElementById("question-title");
-// var answer
-
-// function showFirstQuestion(question) {
-//   firstQuestion.innerText = quizQuestions[0].question;
-// }
-
-// function setNextQuestion() {
-//   displayQuestion(quizQuestions[currentQuestionIndex]);
-// }
-
-// function displayQuestion(questionElement) {
-//   questionElement.innerText =
-//     questionElement[currentQuestionIndex].quizQuestions.question;
-//   // Clear previous answer options buttons
-//   answerOptionsButtons.innerHTML = "";
-
-//   // Display answer options
-//   for (var i = 0; i < quizQuestions.options.length; i++) {
-//     var choiceButton = document.createElement("button");
-//     choiceButton.textContent = quizQuestions.options[i];
-//     answerOptionsButtons.appendChild(choiceButton);
-//   }
-// }
+console.log(quizQuestions);
