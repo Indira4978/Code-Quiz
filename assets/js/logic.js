@@ -95,7 +95,8 @@ nextButton.addEventListener("click", function () {
   //Remove previous question and answers
   questionElement.textContent = "";
   answerOptionsButtons.textContent = "";
-  // Move to the next question index
+  // Move to the next question index until ;
+
   currentQuestionIndex++;
   displayQuestion();
 });
