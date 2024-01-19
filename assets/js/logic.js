@@ -1,6 +1,6 @@
 // when "start" button is clicked: - ok
 //starts the timer - ok
-var count = 60;
+var count = 120;
 var countDown = document.getElementById("time");
 var startButton = document.getElementById("start");
 var timeOutMessage = document.getElementById("timeout-message");
@@ -17,6 +17,7 @@ var currentQuestionIndex = 0;
 
 var score = 0;
 var answerValidation = document.getElementById("answer-validation");
+var endOfQuiz = document.getElementById("end-of-quiz");
 
 //start button event listener
 startButton.addEventListener("click", startQuiz);
@@ -28,9 +29,9 @@ function startQuiz() {
   currentQuestionIndex = 0;
 
   //create and display "next question" button
-  nextButton.classList.remove("hide");
+  // nextButton.classList.remove("hide");
 
-  nextButton.innerHTML = "Next Question";
+  // nextButton.innerHTML = "Next Question";
 
   // show  question
   displayQuestion();
@@ -81,7 +82,7 @@ function displayQuestion() {
         answerValidation.textContent = "CORRECT !";
         correctAudio.play();
         // answer.correct.style.backgroundColor = "green";
-        score + 10;
+        score += 10;
       } else {
         answerValidation.classList.remove("hide");
         answerValidation.textContent = "WRONG !";
@@ -91,6 +92,23 @@ function displayQuestion() {
         //remove 10s from time
         count = count - 10;
       }
+      // show next question after 1s
+      setTimeout(function () {
+        endOfQuiz;
+        answerOptionsButtons.textContent = "";
+        answerValidation.classList.add("hide");
+        currentQuestionIndex++;
+        // check if end of quiz
+        if (currentQuestionIndex < quizQuestions.length) {
+          displayQuestion();
+        } else {
+          // End quiz
+          questionContainer.classList.add("hide");
+          endOfQuiz.classList.remove("hide");
+          endOfQuiz.textContent = "That's it!  " + "  You scored: " + score;
+          console.log("Quiz ended. Score: " + score);
+        }
+      }, 1000);
     });
   });
 }

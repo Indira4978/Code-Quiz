@@ -38,4 +38,4 @@ The app allows to enter a task to be completed at a specific time - in the match
 
 **DEMO/SCREENSHOT**
 
-Credits and references used Tutors and TAs, Stack overflow and some resources on Youtube (JQUERY, DAY.js)... https://www.freecodecamp.org/news/javascript-date-time-dayjs/
+Credits and references used Tutors and TAs, Stack overflow and some resources on Youtube
