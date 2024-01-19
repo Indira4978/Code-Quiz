@@ -1,30 +1,30 @@
-functions needed
+## functions needed
 
-start the timer --- ok
+- start the timer --- ok
 
-hide "start" button ---- ok
+- hide "start" button ---- ok
 
-display the first question --- ok
+- display the first question --- ok
 
-display the answers options in buttons - ok - first questions
+- display the answers options in buttons - ok - first questions
 
-validate the answers
-correct : play sounds + green
-wrong: play sound + red
+- validate the answers
+  -- correct : play sounds + green
+  -- wrong: play sound + red
 
-add 10pts to score when correct answer selected
+- add 10pts to score when correct answer selected
 
-take 10s off time remaining when wrong selected
+- take 10s off time remaining when wrong selected -- ok
 
-do not allow for another option to be selected
+- do not allow for another option to be selected
 
-move to next question after one second
+- move to next question after one second
 
-after last question, display score
+- after last question, display score
 
-promt user to enter their score
+- promt user to enter their score
 
-store scores
+- store scores
 
 display score when "view high scores" is clicked
 

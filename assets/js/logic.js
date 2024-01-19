@@ -72,18 +72,22 @@ function displayQuestion() {
       var allButtons = document.querySelectorAll(".btn");
       allButtons.forEach((btn) => {
         btn.style.backgroundColor = "";
+        //make sure another answer is not selected
+        btn.disabled = true;
       });
 
       if (answer.correct === true) {
         answerValidation.classList.remove("hide");
         answerValidation.textContent = "CORRECT !";
         correctAudio.play();
-        button.style.backgroundColor = "green";
+        // answer.correct.style.backgroundColor = "green";
+        score + 10;
       } else {
         answerValidation.classList.remove("hide");
         answerValidation.textContent = "WRONG !";
         wrongAudio.play();
-        button.style.backgroundColor = "red";
+        // button.style.backgroundColor = "red";
+
         //remove 10s from time
         count = count - 10;
       }
@@ -91,14 +95,14 @@ function displayQuestion() {
   });
 }
 
-nextButton.addEventListener("click", function () {
-  //Remove previous question and answers
-  questionElement.textContent = "";
-  answerOptionsButtons.textContent = "";
-  // Move to the next question index until ;
+// nextButton.addEventListener("click", function () {
+//   //Remove previous question and answers
+//   questionElement.textContent = "";
+//   answerOptionsButtons.textContent = "";
+//   // Move to the next question index until ;
 
-  currentQuestionIndex++;
-  displayQuestion();
-});
+//   currentQuestionIndex++;
+//   displayQuestion();
+// });
 
 console.log(quizQuestions);
